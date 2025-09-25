@@ -50,9 +50,26 @@ async function others() {
 
 
 
+    // const allUsers = await prisma.user.findMany({
+    //     where: {
+    //         name: 'mir'
+    //     },
+    //     orderBy: {
+    //         id: 'desc'
+    //     }
+    // })
+
+    // console.log(allUsers);
+
+
+
+
     const allUsers = await prisma.user.findMany({
         where: {
-            name: 'mir'
+            name: {
+                contains: 'has',
+                mode: 'insensitive'
+            }
         },
         orderBy: {
             id: 'desc'
